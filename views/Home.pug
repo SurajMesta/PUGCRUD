@@ -1,0 +1,68 @@
+doctype html
+html
+    head
+        title="New PUG APP"
+        link(href="https://bootswatch.com/3/cosmo/bootstrap.min.css",type="text/css",rel="stylesheet")
+        meta(name="viewport",content="width=device-width,initial-scale=-1")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+
+ 
+    
+
+    body
+        nav.navbar.navbar-default
+            .container
+                div(class="navbar-header")
+                    a(href="/" class="navbar-brand") CRUD
+                    button(class="navbar-toggle" data-toggle="collapse" data-target="#myDiv")
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                div(class="navbar-collapse collapse" id="myDiv")
+                    ul.nav.navbar-nav
+                        li
+                            a(href="/") Products
+                        li
+                            a(href="/create") Create
+        
+        div(class="container")
+            .row
+                .col-xs-12
+                    h2.jumbotron.text-center Welcome to Home Page
+                         
+            .row
+            for x in posts
+                .col-md-6.col-xs-12
+                    div(class="panel panel-primary")
+                        div(class="panel-heading")
+                            div(class="panel-title text-center")
+                                h4(className="text-center")=  x['name']
+                        div(class="panel-body")
+                            ul.list-group
+                            
+                                li.list-group-item
+                                    span Email:
+                                    p= x['email']
+                                li.list-group-item
+                                    span Phone:
+                                    p= x['phone']
+                                li.list-group-item
+                                    span Description: 
+                                    p= x['description']
+                        div(class="panel-footer")
+                            a(href="/edit/"+x['_id'] class="btn btn-md btn-info glyphicon glyphicon-edit")
+                            a(href="/delete/"+x['_id'] class="btn btn-md btn-danger pull-right glyphicon glyphicon-trash")
+
+
+                             
+                                   
+                                
+
+                                    
+
+                                    
+                           
+
+               

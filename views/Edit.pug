@@ -1,0 +1,52 @@
+doctype html
+html
+    head
+        title="Creation Page"
+        link(href="https://bootswatch.com/3/cosmo/bootstrap.min.css",type="text/css",rel="stylesheet")
+        meta(name="viewport",content="width=device-width,initial-scale=-1")
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js")
+        script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js")
+
+    body
+        nav.navbar.navbar-default
+            .container
+                .navbar-header
+                    a(href="/" class="navbar-brand") CRUD
+                    button(class="navbar-toggle" data-toggle="collapse" data-target="#myDiv")
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                
+                div(class="navbar-collapse collapse" id="myDiv")
+                    ul.nav.navbar-nav
+                        li
+                            a(href="/") Products
+                        li
+                            a(href="/create") Create
+        
+        .container
+            .row
+                .col-xs-12
+                    h2.jumbotron.text-center Welcome to Edition Page
+        .container
+            .row
+                .col-md-6.col-md-offset-3.well
+                    form(action="/edit/"+post['_id'] method="POST")
+                        div(class="form-group")
+                            label Name:
+                            input(type="text" class="form-control" name="name" placeholder="Name" value=post['name'])
+                        div(class="form-group")
+                            label Email:
+                            input(type="email" class='form-control' name="email" placeholder="someone@example.com" value=post['email'])
+                        div(class="form-group")
+                            label Phone:
+                            input(type="text" class="form-control" name="phone" placeholder="9018276534" value=post['phone'])
+                        div(class="form-group")
+                            label Description:
+                            br
+                            textarea(name="description", cols="30", rows="10" class="form-control")= post['description']
+                        div(class="form-group")
+                            input(type="submit" value="submit" class="btn btn-md btn-success")
+                            input(type="reset" value="reset" class="btn btn-md btn-danger pull-right")
+                        
+
